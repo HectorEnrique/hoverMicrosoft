@@ -1,0 +1,139 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*, :before, :after {
+  box-sizing: inherit;
+}
+
+:root {
+  --blanco1: #fff;
+  --blanco2: #bcbcbc;
+  --card1: #0A1B27;
+  --card2: #0D2639;
+  --fuente: 'Inter', sans-serif;
+}
+
+body {
+  background-image: url(../img/mesh-gradient.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  font-family: var(--fuente);
+  font-size: 1.6rem;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+p, a, h2 {
+  color: var(--blanco1);
+  margin: 0;
+}
+p {
+  line-height: 1.5;
+}
+h2 {
+  font-size: 4.8rem;
+}
+
+.contenedor {
+  max-width: 120rem;
+  width: 90%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .contenedor {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+}
+.card {
+  position: relative;
+  box-shadow: rgb(0 0 0 / 12%) 0px 12px 12px;
+  border-radius: 2rem;
+  background-color: var(--card2);
+  margin: 2rem;
+}
+.contenedor:hover > .card {
+  opacity: 1;
+}
+.contenedor:hover > .card::after {
+  opacity: 1;
+}
+.card:first-child {
+  margin-top: 2rem;
+}
+
+.card::before, .card::after {
+  content: "";
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  inset: 0px;
+  border-radius: inherit;
+  opacity: 0;
+  transition-property: opacity, background ;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+.card::before {
+  background: radial-gradient(800px circle at var(--x) var(--y),rgba(255,255,255,0.10),transparent 30%);
+  z-index: 3;
+}
+.card::after {
+  background: radial-gradient(800px circle at var(--x) var(--y),rgba(255,255,255,0.20),transparent 30%);
+  z-index: 1;
+}
+.card:hover:before {
+  opacity: 1;
+}
+.card__contenedor {
+  padding: 2rem;
+  border-radius: inherit;
+  margin: 1px;
+  position: relative;
+  background-color: var(--card1);
+  height: calc(100% - 0px);
+  width: calc(100% - 2px);
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .card:first-child {
+    margin-top: 0;
+  }
+}
+.imagen {
+  border-radius: 1rem;
+  position: relative;
+  width: 50rem;
+  height: 14.2rem;
+  object-fit: cover;
+}
+@media (min-width: 768px){
+  .imagen {
+    width: 34.6rem;
+  }
+}
+.header{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.subtitulo {
+  font-weight: 600;
+}
+.informacion {
+  padding-top: 1rem;
+  color: var(--blanco2);
+}
+
+.bx.bx-universal-access {
+  font-size: 3rem;
+  color: var(--blanco2);
+}
