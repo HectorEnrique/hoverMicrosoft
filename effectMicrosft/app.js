@@ -9,7 +9,6 @@ function mouse(e) {
     x =  e.clientX - RECT.left,
     y =  e.clientY - RECT.top;
     card.style.setProperty('--x', `${x}px`);
-    console.log( card.style.setProperty('--x', `${x}px`));
     card.style.setProperty('--y', `${y}px`);
   })
 }
