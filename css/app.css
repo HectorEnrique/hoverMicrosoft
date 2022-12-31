@@ -1,0 +1,140 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*, :before,:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:root {
+  --fuente:  'Inter', sans-serif;
+  --blanco1: #ffffff;
+  --blanco2: #BCBCBC;
+  --card1: #0A1B27;
+  --card2: #0D2639;
+}
+p {
+  line-height: 1.5;
+}
+p, h2 {
+  color: var(--blanco1);
+  margin: 0;
+}
+h2 {
+  font-size: 4.8rem;
+}
+body {
+  background-image: url(../img/mesh-gradient.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-size: 1.6rem;
+  font-family: var(--fuente);
+}
+.contenedor {
+  max-width: 120rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenedor {
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
+  }
+}
+
+.contenedor:hover > .card {
+  opacity: 1;
+}
+.contenedor:hover > .card::after {
+  opacity: 1;
+}
+.card {
+  position: relative;
+  border-radius: 2rem;
+  background-color: var(--card2);
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .card {
+    margin: 2rem 0;
+  }
+}
+.card__contenedor {
+  padding: 2rem;
+  border-radius: inherit;
+  margin: 2px;
+  background-color: var(--card1);
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card::before, .card::after {
+  content: '';
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition-property: background, opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+.card::before {
+  background: radial-gradient(800px circle at var(--x) var(--y), rgba(255 255 255 / .15), transparent 30%);
+  z-index: 3;
+}
+.card::after {
+  background: radial-gradient(800px circle at var(--x) var(--y), rgba(255 255 255 / .20), transparent 30%);
+  z-index: 1;
+}
+.card:hover:before {
+  opacity: 1;
+}
+
+.heading {
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(180deg, #ffb6ff, #b344ff);
+}
+.img {
+  border-radius: 1rem;
+  position: relative;
+  width: 50rem;
+  height: 14.2rem;
+  object-fit: cover;
+}
+.body {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.sub {
+  font-weight: 600;
+}
+.info {
+  color: var(--blanco2);
+  padding-top: 1rem;
+}
+.bx.bxl-tailwind-css{
+  font-size: 3rem;
+  color: var(--blanco2);
+}
